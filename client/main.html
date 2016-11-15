@@ -5,8 +5,23 @@
 <body>
   <h1>Welcome to fathom!</h1>
 
-  {{> hello}}
-  {{> unitconverter}}
+  <div class="container">
+    <div class="row">
+      {{> loginButtons}}
+    </div>
+
+    <div class="row">
+      {{> unitconverter}}
+    </div>
+
+    <div class="row">
+      {{#if currentUser}}
+        {{> hello}}
+      {{else}}
+        Please login.
+      {{/if}}
+    </div>
+  </div>
 </body>
 
 <template name="hello">
@@ -15,9 +30,13 @@
 </template>
 
 <template name="unitconverter">
-  <div>
-    <div>Unit type</div>
-    <div>Unit from</div>
-    <div>Unit to</div>
+  <div class="container">
+    <div class="row">
+      <div>Unit type</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">Unit from</div>
+      <div class="col-md-6">Unit to</div>
+    </div>
   </div>
 </template>
