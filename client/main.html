@@ -7,11 +7,11 @@
 
   <div class="container">
     <div class="row">
-      {{> loginButtons}}
+      {{> unitconverter}}
     </div>
 
     <div class="row">
-      {{> unitconverter}}
+      {{> loginButtons}}
     </div>
 
     <div class="row">
@@ -30,13 +30,51 @@
 </template>
 
 <template name="unitconverter">
-  <div class="container">
-    <div class="row">
-      <div>Unit type</div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">Unit from</div>
-      <div class="col-md-6">Unit to</div>
+  <div class="panel panel-default">
+    <div class="panel-heading">Fathom unit converter</div>
+    <div class="panel-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10">
+            <select class="form-control" name="unittype">
+              <option value="">(Select a unit type)</option>
+              <option value="energy">Energy</option>
+              <option value="power">Power</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="row">
+              <input class="form-control" type="text" name="quantityfrom" value="{{fromvalue}}">
+            </div>
+            <div class="row">
+              <select class="form-control" name="unitfrom">
+                <option value="">(Select one)</option>
+                {{#each unitslist}}
+                  <option value="{{this.value}}">{{this.label}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <span>=</span>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <input class="form-control" type="text" name="quantityto" value="{{tovalue}}">
+            </div>
+            <div class="row">
+              <select class="form-control" name="unitto">
+                <option value="">(Select one)</option>
+                {{#each unitslist}}
+                  <option value="{{this.value}}">{{this.label}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
