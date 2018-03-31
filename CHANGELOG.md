@@ -1,5 +1,9 @@
 # Changelog for fathom
 
+## [0.0.2] - 2018-03-31
+
+- more power
+
 ## [0.0.1] - 2018-03-31
 
 - Corrected unit conversion ratios

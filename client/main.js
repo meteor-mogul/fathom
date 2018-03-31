@@ -137,35 +137,65 @@ Units =
     },
   power:
   {
+    GW:
+    {
+      value: "GW",
+      label: "Gigawatts (GW)",
+      ratio: 1
+    },
+    MW:
+    {
+      value: "MW",
+      label: "Megawatts (MW)",
+      ratio: 1000
+    },
+    hpS:
+    {
+      value: "hpS",
+      label: "Boiler horsepower (hpS)",
+      ratio: 101910.828025478
+    },
+    kW:
+    {
+      value: "kW",
+      label: "Kilowatts (kW)",
+      ratio: 1000000
+    },
     hpe:
     {
       value: "hpe",
       label: "Electrical horsepower (hpE)",
-      ratio: 1
+      ratio: 1340482.57372654
     },
     hpi:
     {
       value: "hpi",
       label: "Mechanical horsepower (hpI)",
-      ratio: 1.000402478
+      ratio: 1341022.08959503
     },
     hpm:
     {
       value: "hpm",
       label: "Metric horsepower (hpM)",
-      ratio:  1.014277727
+      ratio:  1359621.6173039
+    },
+    ftlbs:
+    {
+      value: "ftlbs",
+      label: "Foot-pound per second (lb-sf/s)",
+      ratio: 737562149.277266
     },
     watts:
     {
       value: "watts",
       label: "Watts",
-      ratio: 746
+      ratio: 1000000000
     },
     btuh:
     {
       value: "btuh",
       label: "BTU per hour (btuh)",
-      ratio: 2545.45766
+      ratio: 3411464968.15287
     }
   }
 };
