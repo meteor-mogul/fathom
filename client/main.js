@@ -3,55 +3,171 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Units = {
+Units =
+{
   energy:
-    { kwh:
-      { value: "kwh",
-        label: "Kilowatt hours (kWh)",
-        ratio: 29307.1070171944},
-      btu:
-      { value: "btu",
-        label: "British Thermal Units (BTU)",
-        ratio: 100000},
-      mj:
-        { value: "mj",
-          label: "megajoules (MJ)",
-          ratio: 105.5055852619},
-      kj:
-      { value: "kj",
-        label: "Kilojoules (kJ)",
-        ratio: 105505.5852619},
-      J:
-      { value: "J",
-        label: "Joules (J)",
-        ratio: 105505585.2619},
+    {
+      GWh:
+      {
+        value: "GWh",
+        label: "Gigawatt hours (GWh)",
+        ratio: 1
+      },
+      MWh:
+      {
+        value: "MWh",
+        label: "Megawatt hours (MWh)",
+        ratio: 1000
+      },
+      GJ:
+      {
+        value: "GJ",
+        label: "Gigajoules (GJ)",
+        ratio: 3600
+      },
+      thermEC:
+      {
+        value: "thermEC",
+        label: "Therms (thermEC) EC",
+        ratio: 34121.2822019601
+      },
+      thermUK:
+      {
+        value: "thermUK",
+        label: "Therms (thermUK) UK",
+        ratio: 34121.4163327839
+      },
       therm:
-      { value: "therm",
-        label: "US Therms (therm)",
-        ratio: 1}
+      {
+        value: "therm",
+        label: "Therms (therm) US",
+        ratio: 34129.5634070406
+      },
+      kWh:
+      {
+        value: "kWh",
+        label: "Kilowatt hours (kWh)",
+        ratio: 1000000
+      },
+      MJ:
+      {
+        value: "MJ",
+        label: "megajoules (MJ)",
+        ratio: 3600000
+      },
+      Wh:
+      {
+        value: "Wh",
+        label: "Watt hours (Wh)",
+        ratio: 1000000000
+      },
+      BTUiso:
+      {
+        value: "BTUiso",
+        label: "British Thermal Units (BTU ISO) ISO",
+        ratio: 3412128220.19601
+      },
+      BTUit:
+      {
+        value: "BTUit",
+        label: "British Thermal Units (BTU IT) International Steam Table",
+        ratio: 3412141479.89694
+      },
+      BTU:
+      {
+        value: "BTU",
+        label: "British Thermal Units (BTU) 59F",
+        ratio: 3412956340.70406
+      },
+      kJ:
+      {
+        value: "kJ",
+        label: "Kilojoules (kJ)",
+        ratio: 3600000000
+      },
+      Calth:
+      {
+        value: "Calth",
+        label: "kilocalorie (Calth) thermochemical",
+        ratio: 15062400000
+      },
+      CalIT:
+      {
+        value: "CalIT",
+        label: "kilocalorie (CalIT) International Steam Table",
+        ratio: 15072480000
+      },
+      footpound:
+      {
+        value: "footpound",
+        label: "Foot-pound force (ft-lbf)",
+        ratio: 2655223737398.16
+      },
+      J:
+      {
+        value: "J",
+        label: "Joules (J)",
+        ratio: 3600000000000
+      },
+      calth:
+      {
+        value: "calth",
+        label: "gram calorie (calth) thermochemical",
+        ratio: 15062400000000
+      },
+      calIT:
+      {
+        value: "calIT",
+        label: "gram calorie (calIT) International Steam Table",
+        ratio: 15072480000000
+      },
+      erg:
+      {
+        value: "erg",
+        label: "erg",
+        ratio: 3.6E+19
+      },
+      eV:
+      {
+        value: "eV",
+        label: "Electronvolt",
+        ratio: 2.24694E+31
+      }
+
     },
   power:
-    { watts:
-      { value: "watts",
-        label: "Watts",
-        ratio: 746 },
-      hpi:
-      { value: "hpi",
-        label: "Mechanical horsepower (hpI)",
-        ratio: 1.000402478 },
-      hpe:
-      { value: "hpe",
-        label: "Electrical horsepower (hpE)",
-        ratio: 1 },
-      hpm:
-      { value: "hpm",
-        label: "Metric horsepower (hpM)",
-        ratio:  1.014277727},
-        btuh:
-        { value: "btuh",
-          label: "BTU per hour (btuh)",
-          ratio: 2545.45766 }
+  {
+    hpe:
+    {
+      value: "hpe",
+      label: "Electrical horsepower (hpE)",
+      ratio: 1
+    },
+    hpi:
+    {
+      value: "hpi",
+      label: "Mechanical horsepower (hpI)",
+      ratio: 1.000402478
+    },
+    hpm:
+    {
+      value: "hpm",
+      label: "Metric horsepower (hpM)",
+      ratio:  1.014277727
+    },
+    watts:
+    {
+      value: "watts",
+      label: "Watts",
+      ratio: 746
+    },
+    btuh:
+    {
+      value: "btuh",
+      label: "BTU per hour (btuh)",
+      ratio: 2545.45766
     }
+  }
 };
 
 Template.hello.onCreated(function helloOnCreated() {
