@@ -1,4 +1,2 @@
-Fathom
-======
-
-A unit conversion app.
+# fathom
+Meteor Mogul unit converter
