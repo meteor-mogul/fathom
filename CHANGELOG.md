@@ -1,5 +1,9 @@
 # Changelog for fathom
 
+## [0.0.3] - 2018-04-03
+
+- converting to vuetify
+
 ## [0.0.2] - 2018-03-31
 
 - more power

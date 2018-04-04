@@ -1,5 +1,19 @@
+// Meteor packages
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { Meteor } from 'meteor/meteor';
+
+// Import Vue-related symbols from packages.
+import { Vue } from 'meteor/meteormogul:vue-dist';
+import { Vuetify } from 'meteor/meteormogul:vuetify-dist';
+import VueMeteorTracker from 'vue-meteor-tracker';
+
+// Use Vue with packages
+// Use VueMeteorTracker to give Vue access to Meteor reactivity
+Vue.use(VueMeteorTracker);
+// Use Vuetify for style and UI widgets.
+Vue.use(Vuetify);
+
 
 import './main.html';
 
@@ -200,23 +214,46 @@ Units =
   }
 };
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+var mmContent =
+{
+  name:
+  'mm-content',
+
+  template:
+  '#mm-content-template'
+
+};
+
+Meteor.startup(() => {
+  // code to run on client at startup
+
+  // Create the Vue instance
+  var mmVue =
+  new Vue({
+
+      // Template id="mm-app-template"
+      // See main.html
+      // Could be defined in any .html file, but Meteor Mogul convention is
+      // to pair template .html and component .js files, e.g.
+      //  template definition in main.html
+      //  component definition in main.js
+      template:
+      '#mm-app-template',
+
+      // The following components are defined in client/ui
+      // Each one also has a .html and .js pair of files for
+      // template and component definitions respectively
+      components:
+      {
+        'mm-content': mmContent,     // client/ui/content
+      },
+
+    // Get fancy with the $mount API.
+    // See https://vuejs.org/v2/api/#vm-mount
+  }).$mount('#app');
+
 });
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});
 
 Template.unitconverter.onCreated(function unitconverterOnCreated() {
   // unit type to convert starts false

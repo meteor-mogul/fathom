@@ -1,47 +1,36 @@
-<head>
-  <title>fathom</title>
-</head>
-
 <body>
+
+  <!-- Render target for Vue app.  Use id to identify. -->
+<div id="app"></div>
+
+<!-- Template for Vue component goes in <script> tag. -->
+<!-- Since we're using static-html package to parse .html files,
+     this template will be processed by VueJS and not Blaze. -->
+<!-- Each template must have one wrapping tag. -->
+<!-- <v-*> HTML tags are stock Vuetify components. -->
+<!-- <mm-*> HTML tags are Meteor Mogul Vuetify components defined in client/ui folder. -->
+<!-- Wrap Vuetify app in a <v-app> tag. -->
+<script type="text/x-template" id="mm-app-template">
+  <v-app id="mm-app">
+    <mm-content></mm-content>
+  </v-app>
+</script>
+
 
   <div class="container top-buffer">
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1"></div>
       <div class="col-xs-10 col-sm-10 col-md-10">
-      <div class="panel panel-default">
-        <div class="panel-heading" style="font-weight: bold;">Welcome to the fathom unit converter!</div>
-        <div class="panel-body">{{> unitconverter}}</div>
+        <div class="panel panel-default">
+          <div class="panel-heading" style="font-weight: bold;">Welcome to the fathom unit converter!</div>
+          <div class="panel-body">{{> unitconverter}}</div>
+        </div>
       </div>
     </div>
-  </div>
 
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="panel panel-default">
-
-          <div class="panel-heading">
-            {{> loginButtons}}
-          </div> <!-- panel heading -->
-
-          <div class="panel-body">
-              {{#if currentUser}}
-              {{> hello}}
-              {{else}}
-              Please login.
-              {{/if}}
-          </div> <!-- panel body -->
-
-        </div> <!-- panel -->
-      </div> <!-- column -->
-    </div> <!-- row -->
   </div> <!-- container -->
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
 
 <template name="unitconverter">
   <div class="row bottom-buffer">
