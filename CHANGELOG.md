@@ -1,5 +1,9 @@
 # Changelog for fathom
 
+## [0.0.4] - 2018-04-06
+
+- got running on Surface
+
 ## [0.0.3] - 2018-04-03
 
 - converting to vuetify

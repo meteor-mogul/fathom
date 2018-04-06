@@ -1,6 +1,5 @@
 <body>
-
-  <!-- Render target for Vue app.  Use id to identify. -->
+<!-- Render target for Vue app.  Use id to identify. -->
 <div id="app"></div>
 
 <!-- Template for Vue component goes in <script> tag. -->
@@ -16,54 +15,4 @@
   </v-app>
 </script>
 
-
-  <div class="container top-buffer">
-
-    <div class="row">
-      <div class="col-xs-1 col-sm-1 col-md-1"></div>
-      <div class="col-xs-10 col-sm-10 col-md-10">
-        <div class="panel panel-default">
-          <div class="panel-heading" style="font-weight: bold;">Welcome to the fathom unit converter!</div>
-          <div class="panel-body">{{> unitconverter}}</div>
-        </div>
-      </div>
-    </div>
-
-  </div> <!-- container -->
 </body>
-
-<template name="unitconverter">
-  <div class="row bottom-buffer">
-    <div class="col-xs-1 col-sm-1 col-md-1"></div>
-    <div class="col-xs-10 col-sm-10 col-md-10">
-    <select class="form-control" name="unittype">
-      <option value="">(Select a unit type)</option>
-      <option value="energy">Energy</option>
-      <option value="power">Power</option>
-    </select>
-  </div>
-</div>
-  <div class="row">
-    <div class="col-xs-5 col-sm-5 col-md-5">
-        <input class="form-control" type="text" id="quantityfrom" value="{{fromvalue}}">
-        <select class="form-control" id="unitfrom">
-          <option value="">(Select one)</option>
-          {{#each unitslist}}
-          <option value="{{this.value}}">{{this.label}}</option>
-          {{/each}}
-        </select>
-    </div>
-    <div class="col-xs-2 col-sm-2 col-md-2">
-      <span class="equals-sign">=</span>
-    </div>
-    <div class="col-xs-5 col-sm-5 col-md-5">
-        <input class="form-control" type="text" id="quantityto" value="{{tovalue}}">
-        <select class="form-control" id="unitto">
-          <option value="">(Select one)</option>
-          {{#each unitslist}}
-          <option value="{{this.value}}">{{this.label}}</option>
-          {{/each}}
-        </select>
-    </div>
-  </div> <!-- row -->
-</template>

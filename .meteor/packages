@@ -4,16 +4,16 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-base             # Packages every Meteor app needs to have
-reactive-var            # Reactive variable for tracker
-tracker                 # Meteor's client-side reactive programming library
+meteor-base@1.3.0             # Packages every Meteor app needs to have
+reactive-var@1.0.11            # Reactive variable for tracker
+tracker@1.1.3                 # Meteor's client-side reactive programming library
 
-standard-minifiers      # JS minifier run for production mode
-es5-shim                # ECMAScript 5 compatibility for older browsers.
-ecmascript              # Enable ECMAScript2015+ syntax in app code
+standard-minifiers@1.1.0      # JS minifier run for production mode
+es5-shim@4.7.0                # ECMAScript 5 compatibility for older browsers.
+ecmascript@0.10.6              # Enable ECMAScript2015+ syntax in app code
 
 twbs:bootstrap
-dynamic-import
+dynamic-import@0.3.0
 
 static-html                             # Don't compile .html files as Blaze templates
 
@@ -21,4 +21,4 @@ meteormogul:vue-dist                    # VueJS JavaScript framework (replaces B
 meteormogul:vuetify-dist                # Vuetify CSS framework (Material Design)
 meteormogul:material-design-icons-fonts # Material Icons font
 
-session                                 # Session
+session@1.1.7                                 # Session
