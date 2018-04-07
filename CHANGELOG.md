@@ -1,5 +1,9 @@
 # Changelog for fathom
 
+## [0.0.5] - 2018-04-07
+
+- events
+
 ## [0.0.4] - 2018-04-06
 
 - got running on Surface

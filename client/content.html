@@ -3,38 +3,79 @@
   <script type="text/x-template" id="mm-content-template">
       <v-content app>
         <v-container>
+
           <v-layout row wrap>
             <v-flex style="font-weight: bold;">
               Welcome to the fathom unit converter!
             </v-flex>
           </v-layout>
+
           <v-layout row wrap>
             <v-flex>
-              <select class="form-control" name="selecttype" v-model="converttype">
-                <option value="">(Select a unit type)</option>
-                <option v-for="unittype in unittypes" :value="unittype" :key="unittype">{{unittype}}</option>
+              <select
+              v-model="converttype"
+              @change="changeType()"
+              >
+                <option
+                value=""
+                >(Select a unit type)</option>
+                <option
+                v-for="unittype in unittypes"
+                :value="unittype"
+                :key="unittype"
+                >{{unittype}}</option>
               </select>
             </v-flex>
           </v-layout>
+
           <v-layout row wrap>
             <v-flex>
-              <input class="form-control" type="text" id="quantityfrom" v-model="valuefrom">
-              <select class="form-control" id="unitfrom" v-model="convertfrom">
-                <option value="">(Select one)</option>
+              <input
+              type="text"
+              v-model="valuefrom"
+              placeholder="Value"
+              @input="fromValInput()"
+              >
+            </v-flex>
+            <v-flex>
+              <input
+              type="text"
+              v-model="valueto"
+              placeholder="Value"
+              @input="toValInput()"
+              >
+            </v-flex>
+          </v-layout>
+
+          <v-layout row wrap>
+            <v-flex>
+              <select
+              v-model="convertfrom"
+              @change="changeFrom()"
+              >
+                <option
+                value=""
+                >(Select unit)</option>
                 <option
                 v-for="conversion in conversions()"
                 :value="conversion.value"
-                :key="conversion.value">{{conversion.label}}</option>
+                :key="conversion.value"
+                >{{conversion.label}}</option>
               </select>
             </v-flex>
             <v-flex>
-              <input class="form-control" type="text" id="quantityto" v-model="valueto">
-              <select class="form-control" id="unitto" v-model="convertto">
-                <option value="">(Select one)</option>
+              <select
+              v-model="convertto"
+              @change="changeTo()"
+              >
+                <option
+                value=""
+                >(Select unit)</option>
                 <option
                 v-for="conversion in conversions()"
                 :value="conversion.value"
-                :key="conversion.value">{{conversion.label}}</option>
+                :key="conversion.value"
+                >{{conversion.label}}</option>
               </select>
             </v-flex>
           </v-layout>
