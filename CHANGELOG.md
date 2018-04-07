@@ -1,5 +1,9 @@
 # Changelog for fathom
 
+## [0.0.6] - 2018-04-07
+
+- math
+
 ## [0.0.5] - 2018-04-07
 
 - events

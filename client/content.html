@@ -28,30 +28,38 @@
             </v-flex>
           </v-layout>
 
+          <!-- Can type in values and will reactively convert. -->
           <v-layout row wrap>
             <v-flex>
               <input
               type="text"
-              v-model="valuefrom"
+              v-model="valueleft"
               placeholder="Value"
-              @input="fromValInput()"
+              @input="leftValInput()"
               >
             </v-flex>
             <v-flex>
               <input
               type="text"
-              v-model="valueto"
+              v-model="valueright"
               placeholder="Value"
-              @input="toValInput()"
+              @input="rightValInput()"
               >
             </v-flex>
           </v-layout>
 
+          <!--
+          UI a little tricky.
+          Left unit select is the driver.
+          When you change the left or right units:
+          1) Left value stays the same.
+          2) Right value is updated.
+          -->
           <v-layout row wrap>
             <v-flex>
               <select
-              v-model="convertfrom"
-              @change="changeFrom()"
+              v-model="convertleft"
+              @change="changeRight()"
               >
                 <option
                 value=""
@@ -65,8 +73,8 @@
             </v-flex>
             <v-flex>
               <select
-              v-model="convertto"
-              @change="changeTo()"
+              v-model="convertright"
+              @change="changeRight()"
               >
                 <option
                 value=""
@@ -79,6 +87,9 @@
               </select>
             </v-flex>
           </v-layout>
+
+          <v-flex xs1><span class="equals-sign">=</span></v-flex>
+
         </v-container>
       </v-content>
   </script>

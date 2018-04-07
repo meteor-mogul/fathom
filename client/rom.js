@@ -1,6 +1,32 @@
+// Read Only Memory data
+
 var debug = false;
 
-Units =
+/*
+Units are organized by largest to smallest.
+Ratio is factor to convert smaller units to largest.
+Largest unit has ratio 1.
+Smaller units are defined in terms of how many are in largest unit.
+e.g., for energy,
+ * GWh is largest unit.  ratio = 1
+ * MWh is smaller than GWh.  1,000 MWh = 1 GWh, so ratio = 1000
+ * GJ is smaller than MWh. 3,600 GJ = 1 GWh, so ratio = 3600
+ * etc.
+ * Electronvolt is smallest unit. 2.24694E+31 eV = 1 GWh.
+
+{
+  type:
+  {
+    unit:
+    {
+      value:
+      label:
+      ratio:
+    }
+  }
+}
+*/
+const Units =
 {
   energy:
     {
@@ -49,7 +75,7 @@ Units =
       MJ:
       {
         value: "MJ",
-        label: "megajoules (MJ)",
+        label: "Megajoules (MJ)",
         ratio: 3600000
       },
       Wh:
@@ -197,11 +223,13 @@ Units =
   }
 };
 
+// For convenience
 Units.getTypes =
 function () {
   return ['energy','power'];
 };
 
+// Return list of conversions of a specific type
 Units.getConversions =
 function (unitType) {
   if (unitType) {
@@ -218,5 +246,17 @@ function (unitType) {
     return [];
   }
 };
+
+// Get ratio of a specific unit
+Units.getRatio =
+function (unitType,unitName) {
+  if (unitType && unitName) {
+    const myUnits = this[unitType];
+    const myUnit = myUnits[unitName];
+    return myUnit.ratio;
+  } else {
+    return null;
+  }
+}
 
 export { Units };

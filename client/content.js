@@ -6,6 +6,19 @@ debug && console.log(Units.getTypes());
 debug && console.log(Units.getConversions('energy'));
 debug && console.log(Units.getConversions('power'));
 
+// Conversion factor is ratio to convert from one unit to another.
+function getFactor(myState,myFrom,myTo) {
+  const myType = myState.converttype;
+  if (myType && myFrom && myTo) {
+    debug && console.log("Ready to convert.");
+    const myRatioFrom = Units.getRatio(myType,myFrom);
+    const myRatioTo = Units.getRatio(myType,myTo);
+    debug && console.log("Ratios:", myRatioFrom, myRatioTo);
+    return (myRatioTo / myRatioFrom);
+  }
+  return null;
+}
+
 var mmContent =
 {
   name:
@@ -19,10 +32,10 @@ var mmContent =
     return {
       unittypes: Units.getTypes(),
       converttype: '',
-      convertfrom: '',
-      convertto: '',
-      valuefrom: '',
-      valueto: ''
+      convertleft: '',
+      convertright: '',
+      valueleft: '',
+      valueright: ''
     }
   },
 
@@ -33,24 +46,40 @@ var mmContent =
     },
     changeType () {
       debug && console.log("changeType", this.converttype);
-      this.convertfrom = '';
-      this.convertto = '';
-      this.valuefrom = '';
-      this.valueto = '';
+      this.convertleft = '';
+      this.convertright = '';
+      this.valueleft = '';
+      this.valueright = '';
     },
-    fromValInput () {
-      debug && console.log("fromInput", this.valuefrom);
-      this.valueto = this.valuefrom;
+    leftValInput () {
+      debug && console.log("fromInput", this.valueleft);
+      this.changeRight();
     },
-    toValInput () {
-      debug && console.log("toInput", this.valueto);
-      this.valuefrom = this.valueto;
+    rightValInput () {
+      debug && console.log("toInput", this.valueright);
+      this.changeLeft();
     },
-    changeFrom () {
+    changeRight () {
       debug && console.log("changeFrom", this.convertfrom);
+      const myFrom = this.convertleft;
+      const myTo = this.convertright;
+      const myFactor = getFactor(this, myFrom, myTo);
+      if (myFactor) {
+        this.valueright = this.valueleft * myFactor;
+        return;
+      }
+      debug && console.log("Not ready to convert.");
     },
-    changeTo () {
-      debug && console.log("changeTo", this.convertto);
+    changeLeft () {
+      debug && console.log("changeTo", this.convertright);
+      const myFrom = this.convertright;
+      const myTo = this.convertleft;
+      const myFactor = getFactor(this, myFrom, myTo);
+      if (myFactor) {
+        this.valueleft = this.valueright * myFactor;
+        return;
+      }
+      debug && console.log("Not ready to convert.");
     },
   }
 
