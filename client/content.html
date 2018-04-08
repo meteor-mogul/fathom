@@ -1,36 +1,28 @@
 <body>
 
   <script type="text/x-template" id="mm-content-template">
-      <v-content app>
-        <v-container>
+    <v-content app>
+      <v-container>
 
-          <v-layout row wrap>
-            <v-flex style="font-weight: bold;">
-              Welcome to the fathom unit converter!
-            </v-flex>
-          </v-layout>
-
+        <v-toolbar>
+          <v-toolbar-title>Welcome to the fathom unit converter!</v-toolbar-title>
+        </v-toolbar>
+        <v-card>
           <v-layout row wrap>
             <v-flex>
-              <select
+              <v-select
               v-model="converttype"
+              label="Select a type of unit"
+              :items="unittypes"
               @change="changeType()"
               >
-                <option
-                value=""
-                >(Select a unit type)</option>
-                <option
-                v-for="unittype in unittypes"
-                :value="unittype"
-                :key="unittype"
-                >{{unittype}}</option>
-              </select>
+            </v-select>
             </v-flex>
           </v-layout>
 
           <!-- Can type in values and will reactively convert. -->
           <v-layout row wrap>
-            <v-flex>
+            <v-flex xs5>
               <input
               type="text"
               v-model="valueleft"
@@ -38,7 +30,8 @@
               @input="leftValInput()"
               >
             </v-flex>
-            <v-flex>
+            <v-flex xs2><span class="equals-sign">=</span></v-flex>
+            <v-flex xs5>
               <input
               type="text"
               v-model="valueright"
@@ -56,42 +49,44 @@
           2) Right value is updated.
           -->
           <v-layout row wrap>
-            <v-flex>
+            <v-flex xs5>
               <select
               v-model="convertleft"
               @change="changeRight()"
               >
-                <option
-                value=""
-                >(Select unit)</option>
-                <option
-                v-for="conversion in conversions()"
-                :value="conversion.value"
-                :key="conversion.value"
-                >{{conversion.label}}</option>
+              <option
+              value=""
+              >(Select unit)</option>
+              <option
+              v-for="conversion in conversions()"
+              :value="conversion.value"
+              :key="conversion.value"
+              >{{conversion.label}}</option>
               </select>
             </v-flex>
-            <v-flex>
+            <v-flex xs2><v-spacer></v-spacer></v-flex>
+            <v-flex xs5>
               <select
               v-model="convertright"
               @change="changeRight()"
               >
-                <option
-                value=""
-                >(Select unit)</option>
-                <option
-                v-for="conversion in conversions()"
-                :value="conversion.value"
-                :key="conversion.value"
-                >{{conversion.label}}</option>
+              <option
+              value=""
+              >(Select unit)</option>
+              <option
+              v-for="conversion in conversions()"
+              :value="conversion.value"
+              :key="conversion.value"
+              >{{conversion.label}}</option>
               </select>
             </v-flex>
           </v-layout>
 
-          <v-flex xs1><span class="equals-sign">=</span></v-flex>
-
-        </v-container>
-      </v-content>
-  </script>
+        </v-flex>
+      </v-layout>
+    </v-card>
+  </v-container>
+</v-content>
+</script>
 
 </body>
